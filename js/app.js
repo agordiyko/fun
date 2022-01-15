@@ -49,7 +49,7 @@ const baseTimerElem = document.querySelector('.base-timer-label');
 const cursorElem = document.querySelector('.cursor');
 
 function arrayRandElement(arr) {
-	var rand = Math.floor(Math.random() * arr.length);
+	let rand = Math.floor(Math.random() * arr.length);
 	return arr[rand];
 }
 
@@ -62,13 +62,6 @@ headerElem.addEventListener('mouseenter', () => {
 headerElem.addEventListener('mouseleave', () => {
 	nameElem.style.transform = 'scale(1)';
 })
-
-// window.addEventListener('mouseout', () => {
-// 	cursorElem.classList.add('hidden');
-// })
-// window.addEventListener('mouseenter', () => {
-// 	cursorElem.classList.remove('hidden');
-// })
 
 let hoverText = document.querySelectorAll('.bang');
 
@@ -240,49 +233,49 @@ const countdownStart = () => {
 }
 
 //Countdown events
-const countdownStarter = () => {
-	var $circleBorder = $('.countdown__icon__circle').get(0);
-	var $countdown = $('.countdown');
+// const countdownStarter = () => {
+// 	let $circleBorder = $('.countdown__icon__circle').get(0);
+// 	let $countdown = $('.countdown');
 
-	var length = $circleBorder.getTotalLength();
-	var counter = {
-		var: 5
-	};
+// 	let length = $circleBorder.getTotalLength();
+// 	let counter = {
+// 		let: 5
+// 	};
 
-	var tl = new TimelineMax({
-		delay: 0.75,
-		repeatDelay: 1,
-		repeat: 1,
-	});
+// 	let tl = new TimelineMax({
+// 		delay: 0.75,
+// 		repeatDelay: 1,
+// 		repeat: 1,
+// 	});
 
 
-	tl.play();
-	opacity();
+// 	tl.play();
+// 	opacity();
 
-	tl.set($countdown, {
-		scale: 0,
-	}).to($countdown, 0.4, {
-		scale: 1,
-		ease: Back.easeOut.config(1.4),
-	}).to($circleBorder, 5, {
-		strokeDashoffset: length,
-		stroke: '#FB7593',
-		ease: Power0.easeNone
-	}).to(counter, 5, {
-		var: 0,
-		onUpdate: function () {
-			$('.countdown__number').html(Math.ceil(counter.var));
-		},
-		ease: Power0.easeNone
-	}, '-= 10')
-		.to($countdown, 0.4, {
-			scale: 0,
-			ease: Back.easeIn.config(1.4),
-			onComplete: function () {
-				$('.countdown__number').html('10');
-			}
-		});
-}
+// 	tl.set($countdown, {
+// 		scale: 0,
+// 	}).to($countdown, 0.4, {
+// 		scale: 1,
+// 		ease: Back.easeOut.config(1.4),
+// 	}).to($circleBorder, 5, {
+// 		strokeDashoffset: length,
+// 		stroke: '#FB7593',
+// 		ease: Power0.easeNone
+// 	}).to(counter, 5, {
+// 		let: 0,
+// 		onUpdate: function () {
+// 			$('.countdown__number').html(Math.ceil(counter.let));
+// 		},
+// 		ease: Power0.easeNone
+// 	}, '-= 10')
+// 		.to($countdown, 0.4, {
+// 			scale: 0,
+// 			ease: Back.easeIn.config(1.4),
+// 			onComplete: function () {
+// 				$('.countdown__number').html('10');
+// 			}
+// 		});
+// }
 
 let cx, cy, mouseX, mouseY, posX, posY, clientX, clientY, dx, dy, tiltx, tilty, request, radius, degree
 
@@ -312,7 +305,7 @@ const body = document.querySelector('body')
 		tiltx  = dy / cy
 		tilty  = dx / cx
 		radius = Math.sqrt(Math.pow(tiltx, 2) + Math.pow(tilty, 2))
-		degree = radius * 20
+		degree = radius * 30
 		gsap.to('.content', 1, { transform: `rotate3d( ${tiltx}, ${tilty}, 0, ${degree}deg )` })
 
 	}
